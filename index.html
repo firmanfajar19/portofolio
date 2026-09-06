@@ -4,8 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firman Fajar Kurniawan | QA Engineer Portfolio</title>
+    <title>Firman Fajar Kurniawan | QA Engineer</title>
+    <meta name="description"
+        content="Firman Fajar Kurniawan — QA Engineer with 8+ years of experience in E-commerce and payment systems, specializing in test automation, API testing, and performance testing.">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,59 +20,95 @@
 <body class="min-h-screen flex flex-col bg-gray-900 text-gray-100 font-sans">
 
     <!-- Navbar -->
-    <nav class="flex justify-between items-center px-8 py-4 bg-gray-800 shadow-md">
-        <h1 class="text-xl font-semibold text-blue-400 tracking-wide whitespace-nowrap mr-8">Portofolio</h1>
-        <ul class="flex space-x-8">
-            <li><a href="index.html" class="text-blue-400 font-semibold">Home</a></li>
-            <li><a href="projects.html" class="hover:text-blue-400">Projects</a></li>
-            <li><a href="skills.html" class="hover:text-blue-400">Skills</a></li>
-            <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
+    <nav class="relative z-10 flex justify-between items-center px-6 md:px-8 py-4 bg-gray-800 shadow-md">
+        <a href="index.html" class="text-xl font-bold text-blue-400 tracking-wide whitespace-nowrap mr-8">Firman
+            Fajar</a>
+        <button id="nav-toggle" class="md:hidden text-gray-300 hover:text-blue-400 focus:outline-none"
+            aria-label="Toggle navigation" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <ul id="nav-menu" class="md:flex md:items-center md:space-x-8">
+            <li><a href="index.html" class="block py-1 text-blue-400 font-semibold">Home</a></li>
+            <li><a href="projects.html" class="block py-1 hover:text-blue-400 transition-colors">Projects</a></li>
+            <li><a href="skills.html" class="block py-1 hover:text-blue-400 transition-colors">Skills</a></li>
+            <li><a href="contact.html" class="block py-1 hover:text-blue-400 transition-colors">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-center text-center md:text-left min-h-[80vh] px-8 pb-12 md:pb-0 pt-8 md:pt-12">
-        <div
-            class="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-blue-400 mb-6 md:mb-0 md:mr-12 shadow-lg">
-            <img src="images/profile.jpg" alt="Profile" class="w-full h-full object-cover object-center">
-        </div>
-
-        <div>
-            <h2 class="text-3xl md:text-5xl font-bold mb-2">Hi, I'm <span class="text-blue-400">Firman Fajar
-                    Kurniawan</span></h2>
-            <p class="text-lg mb-4 text-gray-300">
-                A <span class="text-blue-400">Quality Assurance Engineer</span> with over 8 years of experience in the
-                E-commerce industry,
-                specializing in <span class="text-blue-400">payment systems</span>.
-            </p>
-            <p class="text-justify text-gray-400 mb-6 max-w-2xl">
-                I'm a QA Engineer passionate about delivering reliable, high-quality software quality assurance.
-                My experience spans across E-commerce and payment systems, where I’ve contributed to major releases,
-                backend testing, and scalable QA frameworks.
-                <br>
-                <br>
-                Outside of testing, I express creativity through <span class="text-blue-400">photography</span> and
-                <span class="text-blue-400">videography</span>,
-                capturing stories and moments that inspire balance between technology and art.
-            </p>
-
-            <p class="text-blue-400 font-medium text-lg mb-6">I'm Currently open to new QA opportunities!</p>
-            <div class="space-x-4">
-                <a href="projects.html"
-                    class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">View
-                    My Work</a>
-                <a href="contact.html"
-                    class="inline-block border border-blue-400 text-blue-400 px-6 py-3 rounded-lg hover:bg-blue-400 hover:text-white transition">Get
-                    in Touch</a>
+    <main class="flex-1">
+        <section
+            class="flex flex-col md:flex-row items-center justify-center text-center md:text-left min-h-[80vh] px-6 md:px-8 py-16">
+            <div
+                class="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden profile-ring mb-10 md:mb-0 md:mr-12 shrink-0">
+                <img src="images/profile.jpg" alt="Portrait of Firman Fajar Kurniawan"
+                    class="w-full h-full object-cover object-center">
             </div>
-        </div>
-    </section>
+
+            <div class="reveal max-w-2xl">
+                <p
+                    class="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 bg-emerald-400/10 border border-emerald-400/30 rounded-full px-4 py-1.5 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Open to new QA opportunities
+                </p>
+
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+                    Hi, I'm <span class="text-blue-400">Firman Fajar Kurniawan</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-6 text-gray-300">
+                    Quality Assurance Engineer with over <span class="text-blue-400 font-semibold">8 years of
+                        experience</span> in the E-commerce industry, specializing in
+                    <span class="text-blue-400 font-semibold">payment systems</span>.
+                </p>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    I'm passionate about delivering reliable, high-quality software. My experience spans E-commerce and
+                    payment platforms, where I've contributed to major releases, backend testing, and scalable QA
+                    frameworks.
+                    Outside of testing, I express creativity through photography and videography — capturing stories
+                    that inspire balance between technology and art.
+                </p>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="projects.html"
+                        class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition">View
+                        My Work</a>
+                    <a href="contact.html"
+                        class="inline-block border border-blue-400 text-blue-400 px-6 py-3 rounded-lg font-medium hover:bg-blue-400 hover:text-white transition">Get
+                        in Touch</a>
+                </div>
+
+                <!-- Quick stats -->
+                <div class="grid grid-cols-3 gap-4 mt-12 max-w-md mx-auto md:mx-0">
+                    <div class="card text-center px-2 py-4">
+                        <p class="text-2xl font-bold text-blue-400">8+</p>
+                        <p class="text-xs text-gray-400 mt-1">Years in QA</p>
+                    </div>
+                    <div class="card text-center px-2 py-4">
+                        <p class="text-2xl font-bold text-blue-400">E-com</p>
+                        <p class="text-xs text-gray-400 mt-1">&amp; Payments</p>
+                    </div>
+                    <div class="card text-center px-2 py-4">
+                        <p class="text-2xl font-bold text-blue-400">Auto</p>
+                        <p class="text-xs text-gray-400 mt-1">Frameworks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="mt-auto text-center py-2 text-gray-400 text-sm bg-gray-900 border-t border-gray-700">
-        © 2025 Firman Fajar Kurniawan.
+    <footer class="text-center py-4 text-gray-400 text-sm bg-gray-900 border-t border-gray-700">
+        © 2025 Firman Fajar Kurniawan ·
+        <a href="https://www.linkedin.com/in/loncing" target="_blank" rel="noopener noreferrer"
+            class="hover:text-blue-400">LinkedIn</a> ·
+        <a href="https://github.com/firmanfajar19" target="_blank" rel="noopener noreferrer"
+            class="hover:text-blue-400">GitHub</a>
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 
 </html>
