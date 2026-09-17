@@ -2,50 +2,44 @@
 
 Personal portfolio website for **Firman Fajar Kurniawan** — Quality Assurance Engineer with 8+ years of experience in E-commerce and payment systems.
 
-## Tech Stack
+## Design
 
-- **HTML5** — semantic, accessible markup
-- **Tailwind CSS** (via CDN) — utility-first styling
-- **Vanilla JavaScript** — mobile navigation and scroll-reveal animations
-- **Inter** — typography via Google Fonts
+Single-page Linear-inspired dark technical layout with a QA "pass signal" accent (`#00E5A0`).
 
-## Pages
+- **Space Grotesk** — display headings
+- **Inter** — body
+- **JetBrains Mono** — labels, tags, stats
+- **Vanilla CSS + JS** — no build step, no Tailwind
 
-| Page | Description |
-|------|-------------|
-| `index.html` | Hero, professional summary, and quick stats |
-| `projects.html` | QA automation projects with live demo videos |
-| `skills.html` | Testing tools & frameworks organized by category |
-| `contact.html` | Contact links and CV download |
+## Sections
 
-## Project Structure
+| Anchor | Content |
+|--------|---------|
+| `#about` | What I do, domains, beyond testing |
+| `#skills` | Automation, methodology, performance, API, data, CI/CD |
+| `#projects` | Appium/Playwright demos + GitHub projects |
+| `#experience` | Bluesky Tech → Catalyst → Tiket.com → Elevenia + education |
+| `#contact` | LinkedIn, GitHub, Email, CV download |
+
+Old multipage URLs (`experience.html`, `projects.html`, `skills.html`, `contact.html`) redirect to the matching anchors on `index.html`.
+
+## Video demos
+
+Google Drive embeds use the **file preview** endpoint:
 
 ```
-.
-├── index.html          # Home / hero page
-├── projects.html       # QA automation projects
-├── skills.html         # Skills & tools
-├── contact.html        # Contact information
-├── assets/
-│   ├── favicon.ico
-│   └── Firman-Fajar-Kurniawan-QA-CV.pdf
-├── css/
-│   └── style.css       # Shared styles (animations, nav, cards)
-├── js/
-│   └── main.js         # Mobile nav + scroll reveal
-└── images/
-    └── profile.jpg
+https://drive.google.com/file/d/{FILE_ID}/preview
 ```
+
+> **Why videos failed before:** `docs.google.com/videos/d/{id}/preview` returns **404** for Drive-hosted files. Drive file videos must be embedded via `drive.google.com/file/d/{id}/preview`.
+>
+> Sharing must also be set to **Anyone with the link**. Each demo card includes an "Open demo on Drive" fallback link.
 
 ## Running Locally
 
-No build step required — it's a static site. Serve it with any static server:
-
 ```bash
-# Python
 python3 -m http.server 8080
-
-# or Node
+# or
 npx serve .
 ```
 
@@ -53,4 +47,21 @@ Then open http://localhost:8080
 
 ## Deployment
 
-Deploys as-is to any static host: **GitHub Pages**, Netlify, or Vercel. No build configuration needed.
+Static site — deploys as-is to **GitHub Pages**, Netlify, or Vercel.
+
+## Project Structure
+
+```
+.
+├── index.html          # Single-page portfolio
+├── experience.html     # Redirect → index.html#experience
+├── projects.html       # Redirect → index.html#projects
+├── skills.html         # Redirect → index.html#skills
+├── contact.html        # Redirect → index.html#contact
+├── assets/
+│   ├── favicon.ico
+│   └── Firman-Fajar-Kurniawan-QA-CV.pdf
+├── css/style.css       # Design system
+├── js/main.js          # Nav + scroll reveal
+└── images/
+```
