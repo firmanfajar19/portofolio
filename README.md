@@ -1,17 +1,18 @@
 # QA Engineer Portfolio
 
-Personal portfolio website for **Firman Fajar Kurniawan** — Quality Assurance Engineer with 8+ years of experience in E-commerce and payment systems.
+Personal portfolio for **Firman Fajar Kurniawan** — QA Engineer with 8+ years in E-commerce and payment systems.
 
-## Design
+**Live:** https://firmanfajar19.github.io/portofolio/
 
-Single-page Linear-inspired dark technical layout with a QA "pass signal" accent (`#00E5A0`).
+## Stack
 
-- **Space Grotesk** — display headings
-- **Inter** — body
-- **JetBrains Mono** — labels, tags, stats
-- **Vanilla CSS + JS** — no build step, no Tailwind
+- Vanilla **HTML / CSS / JS** — no build step, no framework, no Tailwind
+- Google Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (labels)
+- Design system tokens in `css/style.css` (`:root`)
 
 ## Sections
+
+Single page (`index.html`). Navigation uses anchors:
 
 | Anchor | Content |
 |--------|---------|
@@ -21,47 +22,55 @@ Single-page Linear-inspired dark technical layout with a QA "pass signal" accent
 | `#experience` | Bluesky Tech → Catalyst → Tiket.com → Elevenia + education |
 | `#contact` | LinkedIn, GitHub, Email, CV download |
 
-Old multipage URLs (`experience.html`, `projects.html`, `skills.html`, `contact.html`) redirect to the matching anchors on `index.html`.
+`experience.html`, `projects.html`, `skills.html`, and `contact.html` are redirect stubs to the matching anchors (old multipage URLs).
+
+## Project structure
+
+```
+.
+├── index.html          # All real content (single page)
+├── experience.html     # Redirect → index.html#experience
+├── projects.html       # Redirect → index.html#projects
+├── skills.html         # Redirect → index.html#skills
+├── contact.html        # Redirect → index.html#contact
+├── AGENTS.md           # Notes for AI coding agents
+├── assets/
+│   ├── favicon.ico
+│   └── Firman-Fajar-Kurniawan-QA-CV.pdf
+├── css/style.css       # Design tokens + layout
+├── js/main.js          # Mobile nav + scroll reveal + footer year
+└── images/profile.jpg  # Unused (hero uses a QA console panel, not a photo)
+```
+
+## Run locally
+
+```bash
+python3 -m http.server 8080
+# or: npx serve .
+```
+
+Open http://localhost:8080. Use a local server — `file://` breaks fonts and iframes.
+
+## Deploy
+
+Static site on **GitHub Pages**. Push to `main`:
+
+```bash
+git push origin main
+```
+
+No workflow file; Pages is enabled on the GitHub repo.
 
 ## Video demos
 
-Google Drive embeds use the **file preview** endpoint:
+Google Drive embeds must use the **file preview** URL:
 
 ```
 https://drive.google.com/file/d/{FILE_ID}/preview
 ```
 
-> **Why videos failed before:** `docs.google.com/videos/d/{id}/preview` returns **404** for Drive-hosted files. Drive file videos must be embedded via `drive.google.com/file/d/{id}/preview`.
->
-> Sharing must also be set to **Anyone with the link**. Each demo card includes an "Open demo on Drive" fallback link.
+`docs.google.com/videos/d/{id}/preview` returns **404** in an iframe. Files must be shared as **Anyone with the link**. Each demo card also has an “Open demo on Drive” fallback.
 
-## Running Locally
+## Content source of truth
 
-```bash
-python3 -m http.server 8080
-# or
-npx serve .
-```
-
-Then open http://localhost:8080
-
-## Deployment
-
-Static site — deploys as-is to **GitHub Pages**, Netlify, or Vercel.
-
-## Project Structure
-
-```
-.
-├── index.html          # Single-page portfolio
-├── experience.html     # Redirect → index.html#experience
-├── projects.html       # Redirect → index.html#projects
-├── skills.html         # Redirect → index.html#skills
-├── contact.html        # Redirect → index.html#contact
-├── assets/
-│   ├── favicon.ico
-│   └── Firman-Fajar-Kurniawan-QA-CV.pdf
-├── css/style.css       # Design system
-├── js/main.js          # Nav + scroll reveal
-└── images/
-```
+Career details and skills should match `assets/Firman-Fajar-Kurniawan-QA-CV.pdf`. LinkedIn (`/in/loncing`) is often login-walled, so prefer the CV when updating copy.
