@@ -36,6 +36,7 @@ Single page (`index.html`). Navigation uses anchors:
 ├── AGENTS.md           # Notes for AI coding agents
 ├── assets/
 │   ├── favicon.ico
+│   ├── og-cover.png    # 1200×630 social preview used by og:image / twitter:image
 │   └── Firman-Fajar-Kurniawan-QA-CV.pdf
 ├── css/style.css       # Design tokens + layout
 ├── js/main.js          # Mobile nav + scroll reveal + footer year
@@ -50,6 +51,8 @@ python3 -m http.server 8080
 ```
 
 Open http://localhost:8080. Use a local server — `file://` breaks fonts and iframes.
+
+Both the page and `assets/og-cover.png` are checked in, so the site has no build step: edit the file, refresh, done.
 
 ## Deploy
 

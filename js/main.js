@@ -14,18 +14,31 @@
   window.addEventListener("scroll", onScroll, { passive: true });
 
   if (toggle && menu) {
-    toggle.addEventListener("click", () => {
-      const open = menu.classList.toggle("is-open");
+    const setMenuOpen = (open) => {
+      menu.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", String(open));
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-    });
+    };
+
+    const isMenuOpen = () => menu.classList.contains("is-open");
+
+    toggle.addEventListener("click", () => setMenuOpen(!isMenuOpen()));
 
     menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
-      });
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isMenuOpen()) {
+        setMenuOpen(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!isMenuOpen()) return;
+      if (menu.contains(event.target) || toggle.contains(event.target)) return;
+      setMenuOpen(false);
     });
   }
 

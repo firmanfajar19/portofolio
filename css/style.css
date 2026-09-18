@@ -11,7 +11,7 @@
   --border-strong: #2c3a4a;
   --ink: #edf2f7;
   --muted: #8a9aab;
-  --muted-2: #5d6d7e;
+  --muted-2: #7c8c9c;
   --accent: #00e5a0;
   --accent-dim: rgba(0, 229, 160, 0.12);
   --accent-line: rgba(0, 229, 160, 0.35);
@@ -27,6 +27,8 @@
   --radius-sm: 10px;
   --max: 1120px;
   --nav-h: 64px;
+
+  color-scheme: dark;
 }
 
 *,
@@ -91,6 +93,7 @@ button {
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: auto, 48px 48px, 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 20%, transparent 75%);
   mask-image: radial-gradient(ellipse 90% 70% at 50% 20%, #000 20%, transparent 75%);
 }
 
@@ -105,6 +108,7 @@ button {
   height: var(--nav-h);
   padding: 0 clamp(1.25rem, 4vw, 2.5rem);
   background: rgba(7, 11, 15, 0.78);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s ease, background 0.25s ease;
@@ -148,15 +152,15 @@ button {
   color: var(--ink);
 }
 
-.nav-cta {
+.nav-links .nav-cta {
   padding: 0.45rem 0.95rem;
   border: 1px solid var(--border-strong);
   border-radius: 999px;
-  color: var(--ink) !important;
-  transition: border-color 0.2s ease, background 0.2s ease !important;
+  color: var(--ink);
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.nav-cta:hover {
+.nav-links .nav-cta:hover {
   border-color: var(--accent-line);
   background: var(--accent-dim);
 }
@@ -167,7 +171,6 @@ button {
   height: 40px;
   place-items: center;
   gap: 6px;
-  flex-direction: column;
 }
 
 .nav-toggle span {
@@ -195,7 +198,7 @@ button {
   padding: 0.75rem 1.25rem;
   border-radius: 10px;
   font-size: 0.92rem;
-  font-weight: 550;
+  font-weight: 600;
   transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -417,6 +420,7 @@ button {
   border-radius: 12px;
   font-size: 0.72rem;
   color: var(--muted);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
   animation: float 5s ease-in-out infinite;
@@ -643,7 +647,7 @@ button {
   padding: 0.22rem 0.6rem;
   border-radius: 999px;
   font-size: 0.72rem;
-  font-weight: 550;
+  font-weight: 600;
   border: 1px solid transparent;
 }
 
@@ -942,6 +946,7 @@ button {
     padding: 0.75rem 1.25rem 1.25rem;
     background: rgba(7, 11, 15, 0.96);
     border-bottom: 1px solid var(--border);
+    -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
   }
 
@@ -958,7 +963,8 @@ button {
     border-bottom: 0;
   }
 
-  .nav-cta {
+  .nav-links .nav-cta {
+    padding: 0.85rem 0;
     text-align: center;
     margin-top: 0.5rem;
   }
