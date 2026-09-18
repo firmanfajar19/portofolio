@@ -985,6 +985,20 @@ button {
   }
 }
 
+/* Keep the floating cards over the console frame's text-free bands
+   (title bar and bottom padding) once the hero goes two-column, where the
+   cards sit inside the panel's horizontal bounds. Bands measured at
+   0..60 and 195..216 inside a 216px frame. */
+@media (min-width: 961px) {
+  .float-card-1 {
+    top: -24px;
+  }
+
+  .float-card-2 {
+    bottom: -56px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal {
